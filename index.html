@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<title>ICTL - 大学入試共通テスト「情報」問題言語 サンプルプログラム集</title>
+<style type="text/css">
+
+@media (max-width: 700px) {
+    textarea {
+        width: 100%;
+    }
+}
+@media (min-width: 700px) {
+    textarea {
+        width: 80%;
+    }
+}
+
+input.copy_button {
+    width: 8.5em;
+    text-align: center;
+}
+
+p {
+    margin: 0;
+}
+
+h2 {
+    margin-bottom: 0;
+}
+
+</style>
+</head>
+<body>
+
+<h1>ICTL - 大学入試共通テスト「情報」問題言語 サンプルプログラム集</h1>
+
+<p><a href="https://nodai2hitc.github.io/ictl/">実行環境</a>にコピペして実行してください。</p>
+
+<form>
+
+<h2>試作問題 - 出現頻度を求めるプログラム</h2>
+<p><a href="https://www.ipsj.or.jp/education/9faeag0000012a50-att/sanko2.pdf">「情報」試作問題 (検討用イメージ)</a>より引用。</p>
+<textarea id="shisaku2020_1" rows="7">
+(01)Angoubun = ["p","y","e","b","k","b","d","r","."]
+(02)配列 Hindo のすべての要素に 0 を代入する
+(03)i を 0 から 要素数(Angoubun)-1 まで 1 ずつ増やしながら:
+(04)｜ bangou = 差分( Angoubun[i] )
+(05)｜ もし bangou != -1 ならば:
+(06)⎿ ⎿ Hindo[bangou] = Hindo[bangou] + 1
+(07)表示する(Hindo)
+</textarea>
+<input type="button" value="コピー" id="shisaku2020_1_copy" class="copy_button" />
+
+<h2>試作問題 - 暗号文を復号するプログラム</h2>
+<p><a href="https://www.ipsj.or.jp/education/9faeag0000012a50-att/sanko2.pdf">「情報」試作問題 (検討用イメージ)</a>より引用。</p>
+<textarea id="shisaku2020_2" rows="13">
+(01)Angoubun = ["p","y","e","b","k","b","d","r","."]
+(02)配列変数 Hirabun を初期化する
+(03)hukugousuu = 26 - 10
+(04)i を 0 から 要素数(Angoubun)-1 まで 1 ずつ増やしながら:
+(05)｜ bangou = 差分( Angoubun[i] )
+(06)｜ もし bangou != -1 ならば:
+(07)｜ ｜ もし bangou+hukugousuu &lt;= 25 ならば:
+(08)｜ ｜ ｜ Hirabun[i] = 文字( bangou+hukugousuu )
+(09)｜ ｜ そうでなければ:
+(10)｜ ｜ ⎿ Hirabun[i] = 文字( bangou+hukugousuu-26 )
+(11)｜ そうでなければ:
+(12)⎿ ⎿ Hirabun[i] = Angoubun[i]
+(13)表示する(Hirabun)
+</textarea>
+<input type="button" value="コピー" id="shisaku2020_2_copy" class="copy_button" />
+
+<h2>オリジナル - FizzBuzz</h2>
+<p><a href="https://opensource.org/licenses/mit-license.php">MIT License</a></p>
+<textarea id="original_fizzbuzz" rows="9">
+(01)i を 1 から 100 まで 1 ずつ増やしながら:
+(02)｜ もし i % 15 == 0 ならば:
+(03)｜ ｜ 表示する("FizzBuzz")
+(04)｜ あるいは i % 3 == 0 ならば:
+(05)｜ ｜ 表示する("Fizz")
+(06)｜ あるいは i % 5 == 0 ならば:
+(07)｜ ｜ 表示する("Buzz")
+(08)｜ そうでなければ:
+(09)⎿ ⎿ 表示する(i)
+</textarea>
+<input type="button" value="コピー" id="original_fizzbuzz_copy" class="copy_button" />
+
+<h2>サンプル問題 - 当選数を決めるプログラム1</h2>
+<p><a href="https://www.dnc.ac.jp/albums/abm.php?f=abm00040342.pdf&n=12_%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E5%95%8F%E9%A1%8C%E3%80%8E%E6%83%85%E5%A0%B1%E3%80%8F%E3%80%80%E5%95%8F%E9%A1%8C.pdf">情報 サンプル問題</a>より引用。</p>
+<textarea id="sample2021_1" rows="11">
+(01) Tomei = ["Ａ党", "Ｂ党", "Ｃ党", "Ｄ党"]
+(02) Tokuhyo = [1200, 660, 1440, 180]
+(03) sousuu = 0
+(04) giseki = 6
+(05) m を 0 から 3 まで 1 ずつ増やしながら繰り返す:
+(06) ⎿ sousuu = sousuu + Tokuhyo[m]
+(07) kizyunsuu = sousuu / giseki
+(08) 表示する("基準得票数：", kizyunsuu )
+(09) 表示する("比例配分")
+(10) m を 0 から 3 まで 1 ずつ増やしながら繰り返す:
+(11) ⎿ 表示する(Tomei[m], "：", Tokuhyo[m] / kizyunsuu)
+</textarea>
+<input type="button" value="コピー" id="sample2021_1_copy" class="copy_button" />
+
+<h2>サンプル問題 - 当選数を決めるプログラム2</h2>
+<p><a href="https://www.dnc.ac.jp/albums/abm.php?f=abm00040342.pdf&n=12_%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E5%95%8F%E9%A1%8C%E3%80%8E%E6%83%85%E5%A0%B1%E3%80%8F%E3%80%80%E5%95%8F%E9%A1%8C.pdf">情報 サンプル問題</a>より引用。</p>
+<textarea id="sample2021_2" rows="18">
+(01) Tomei = ["Ａ党", "Ｂ党", "Ｃ党", "Ｄ党"]
+(02) Tokuhyo = [1200, 660, 1440, 180]
+(03) Tosen = [0, 0, 0, 0]
+(04) tosenkei = 0
+(05) giseki = 6
+(06) m を 0 から 3 まで 1 ずつ増やしながら繰り返す:
+(07) ⎿ Hikaku[m] = Tokuhyo[m]
+(08) tosenkei &lt; giseki の間繰り返す:
+(09) ｜ max = 0
+(10) ｜ i を 0 から 3 まで 1 ずつ増やしながら繰り返す:
+(11) ｜ ｜ もし max &lt; Hikaku[i] ならば:
+(12) ｜ ｜ ｜ max = Hikaku[i]
+(13) ｜ ⎿ ⎿ maxi = i
+(14) ｜ Tosen[maxi] = Tosen[maxi] + 1
+(15) ｜ tosenkei = tosenkei + 1
+(16) ⎿ Hikaku[maxi] = 切り捨て(Tokuhyo[maxi] / tosenkei)
+(17) k を 0 から 3 まで 1 ずつ増やしながら繰り返す:
+(18) ⎿ 表示する(Tomei[k], "：", Tosen[k], "名")
+</textarea>
+<input type="button" value="コピー" id="sample2021_2_copy" class="copy_button" />
+
+</form>
+
+<script>
+
+window.addEventListener("DOMContentLoaded", function(){
+    let elms = document.getElementsByClassName("copy_button");
+    for(let i = 0; i < elms.length; i++){
+        let elm = elms[i];
+        elm.addEventListener("click", function(event){
+            copyToClipboard(elm.id.replace(/_copy$/, ""));
+        });
+    }
+});
+
+function copyToClipboard(id) {
+    document.getElementById(id).select();
+    document.execCommand("Copy");
+    document.getElementById(id + "_copy").value = "コピーしました。";
+    setTimeout(function(){ document.getElementById(id + "_copy").value = "コピー"; }, 3000);
+}
+
+</script>
+</body>
+</html>
