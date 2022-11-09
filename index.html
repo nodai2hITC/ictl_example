@@ -99,9 +99,9 @@ h2 {
 (01)i を 1 から 100 まで 1 ずつ増やしながら:
 (02)｜ もし i % 15 == 0 ならば:
 (03)｜ ｜ 表示する("FizzBuzz")
-(04)｜ あるいは i % 3 == 0 ならば:
+(04)｜ そうでなくもし i % 3 == 0 ならば:
 (05)｜ ｜ 表示する("Fizz")
-(06)｜ あるいは i % 5 == 0 ならば:
+(06)｜ そうでなくもし i % 5 == 0 ならば:
 (07)｜ ｜ 表示する("Buzz")
 (08)｜ そうでなければ:
 (09)⎿ ⎿ 表示する(i)
@@ -173,6 +173,33 @@ h2 {
 (19)⎿ 表示する(Tomei[k], "：", Tosen[k], "名")
 </textarea>
 <input type="button" value="コピー" id="sample2021_2kai_copy" class="copy_button" />
+
+<h2>試作問題2022 - 目標の金額ちょうどになる最小の硬貨枚数を計算するプログラム</h2>
+<p><a href="https://www.dnc.ac.jp/albums/abm.php?f=abm00041798.pdf&n=6-2-1+%E8%A9%A6%E4%BD%9C%E5%95%8F%E9%A1%8C%E3%80%8E%E6%83%85%E5%A0%B1%E2%85%A0%E3%80%8F.pdf">試作問題『情報Ⅰ』</a>より引用。</p>
+<textarea id="shisaku2022_1" rows="7">
+(1) Kouka = [1,5,10,50,100]
+(2) kingaku = 46
+(3) maisu = 0, nokori = kingaku
+(4) i を 4 から 0 まで 1 ずつ減らしながら繰り返す：
+(5) ｜ maisu = maisu + nokori ÷ Kouka[i]
+(6) ⎿ nokori = nokori % Kouka[i]
+(7) 表示する(maisu)
+</textarea>
+<input type="button" value="コピー" id="shisaku2022_1_copy" class="copy_button" />
+
+<h2>試作問題2022 - 最小交換硬貨枚数を求めるプログラム</h2>
+<p><a href="https://www.dnc.ac.jp/albums/abm.php?f=abm00041798.pdf&n=6-2-1+%E8%A9%A6%E4%BD%9C%E5%95%8F%E9%A1%8C%E3%80%8E%E6%83%85%E5%A0%B1%E2%85%A0%E3%80%8F.pdf">試作問題『情報Ⅰ』</a>より引用。</p>
+<textarea id="shisaku2022_2" rows="7">
+(1) kakaku = 46
+(2) min_maisu = 100
+(3) tsuri を 0 から 99 まで 1 ずつ増やしながら繰り返す：
+(4) ｜shiharai = kakaku + tsuri
+(5) ｜maisu = 枚数(shiharai) + 枚数(tsuri)
+(6) ｜ もし maisu &lt; min_maisu ならば：
+(7) ⎿⎿ min_maisu = maisu
+(8) 表示する(min_maisu)
+</textarea>
+<input type="button" value="コピー" id="shisaku2022_2_copy" class="copy_button" />
 
 </form>
 
