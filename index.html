@@ -201,6 +201,32 @@ h2 {
 </textarea>
 <input type="button" value="コピー" id="shisaku2022_2_copy" class="copy_button" />
 
+<h2>試作問題2022概要 - 二分探索</h2>
+<p><a href="https://www.dnc.ac.jp/albums/abm.php?f=abm00041798.pdf&n=6-2-1+%E8%A9%A6%E4%BD%9C%E5%95%8F%E9%A1%8C%E3%80%8E%E6%83%85%E5%A0%B1%E2%85%A0%E3%80%8F.pdf">試作問題『情報Ⅰ』</a>より引用。</p>
+<textarea id="shisaku2022_gaiyou" rows="20">
+    (1)  Data = [3,18,29,33,48,52,62,77,89,97]
+    (2)  kazu = 要素数(Data)
+    (3)  表示する("0～99の数字を入力してください")
+    (4)  atai = 【外部からの入力】
+    (5)  hidari = 0 , migi = kazu - 1
+    (6)  owari = 0
+    (7)  hidari &lt;= migi and owari == 0 の間繰り返す:
+    (8)  ｜ aida = (hidari+migi) ÷ 2 # 演算子÷は商の整数値を返す
+    (9)  ｜ もし Data[aida] == atai ならば:
+    (10) ｜ ｜ 表示する(atai, "は", aida, "番目にありました")
+    (11) ｜ ｜ owari = 1
+    (12) ｜ そうでなくもし Data[aida] &lt; atai ならば:
+    (13) ｜ ｜ hidari = aida + 1
+    (14) ｜ そうでなければ:
+    (15) ⎿ ⎿ migi = aida - 1
+    (16) もし owari == 0 ならば:
+    (17) ⎿ 表示する(atai, "は見つかりませんでした")
+    (18) 表示する("添字", " ", "要素")
+    (19) i を 0 から kazu - 1 まで 1 ずつ増やしながら繰り返す:
+    (20) ⎿ 表示する(i, " ", Data[i])
+</textarea>
+<input type="button" value="コピー" id="shisaku2022_gaiyou_copy" class="copy_button" />
+
 </form>
 
 <script>
