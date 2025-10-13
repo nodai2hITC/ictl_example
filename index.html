@@ -9,6 +9,10 @@
     textarea {
         width: 100%;
     }
+
+    li {
+        display: inline;
+    }
 }
 @media (min-width: 700px) {
     textarea {
@@ -20,6 +24,7 @@ textarea {
     white-space: pre;
     overflow-wrap: normal;
     overflow-x: auto;
+    float: left;
 }
 
 input.copy_button {
@@ -27,8 +32,18 @@ input.copy_button {
     text-align: center;
 }
 
+section {
+    margin: 0;
+    padding: 0.5em 0 0 0;
+    clear: both;
+}
+
 p {
     margin: 0;
+}
+
+ul {
+    list-style: none;
 }
 
 h2 {
@@ -45,23 +60,126 @@ strong {
 
 <h1>DNCL2 - 大学入試共通テスト「情報」問題言語 サンプルプログラム集</h1>
 
-<p><a href="https://nodai2hitc.github.io/ictl/">実行環境</a>にコピペして実行してください。</p>
+<p><a href="https://nodai2hitc.github.io/ictl/">実行環境</a>にコピペして実行するか、各プログラムのところの実行ページへのリンクをクリックして実行してください。</p>
 
 <form>
 
+<section>
+<h2>R7共通テスト追・再試験 - ごみ拾いの結果を入力するプログラム</h2>
+<p>令和７年度共通テスト追・再試験「情報Ⅰ」より引用。 <strong>※注：配列は 1 から始まる</strong>ので、実行する際は「配列の添字を 1 からにする」をオンにしてください。</p>
+<textarea id="kyoutuu2025tui_1" rows="8" class="one_based">
+(01) 表示する("生徒の出席番号は？")
+(02) n =【整数を入力】
+(03) 表示する("ごみの入れ物は？ バケツ:1 ごみ袋:2")
+(04) Iremono[n] =【整数を入力】
+(05) 表示する("ごみの種類は？ 可燃ごみ:1 不燃ごみ:2")
+(06) Shurui[n] =【整数を入力】
+(07) 表示する("計量結果（g）は？")
+(08) Keiryou[n] =【整数を入力】
+</textarea>
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
+
+<section>
+<h2>R7共通テスト追・再試験 - ごみの総重量を計算するプログラム</h2>
+<p>令和７年度共通テスト追・再試験「情報Ⅰ」より引用。 <strong>※注：配列は 1 から始まる</strong>ので、実行する際は「配列の添字を 1 からにする」をオンにしてください。</p>
+<textarea id="kyoutuu2025tui_2" rows="16" class="one_based">
+(00-1) Iremono = [2,2,1,1,1,1,1,2,2,1,2,2,1,2,1,1,2,1,1,1,2,1,2,1,1,1,2,2,2,2,2,2,2,1,1,1,1,1,1,2]
+(00-2) Shurui  = [1,1,2,1,1,2,1,1,1,2,1,2,1,2,1,2,2,1,2,1,2,2,2,2,1,2,2,1,2,2,2,1,2,2,2,1,1,1,2,2]
+(00-3) Keiryou = [112,1139,717,1206,764,855,1693,1151,1283,1258,1080,500,1722,46,1433,755,1039,1528,633,948,382,765,610,527,1536,1012,726,478,1147,1113,909,185,1282,1411,1293,1219,913,1401,1164,401]
+(01) ninzu = 40
+(02) kanen = 0, funen = 0
+(03) i を 1 から ninzu まで 1 ずつ増やしながら繰り返す:
+(04)  ｜ もし Iremono[i] == 1 ならば:
+(05)  ｜  ｜ gomi = Keiryou[i] - 350
+(06)  ｜ そうでなければ:
+(07)  ｜  ⎿ gomi = Keiryou[i]
+(08)  ｜ もし Shurui[i] == 1 ならば:
+(09)  ｜  ｜ kanen = kanen + gomi
+(10)  ｜ そうでなければ:
+(11)  ⎿  ⎿ funen = funen + gomi
+(12) 表示する("可燃ごみの総重量は", kanen, "g")
+(13) 表示する("不燃ごみの総重量は", funen, "g")
+</textarea>
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
+
+<section>
+<h2>R7共通テスト追・再試験 - ごみ拾いの結果を入力するプログラム改</h2>
+<p>令和７年度共通テスト追・再試験「情報Ⅰ」より引用。 <strong>※注：配列は 1 から始まる</strong>ので、実行する際は「配列の添字を 1 からにする」をオンにしてください。</p>
+<textarea id="kyoutuu2025tui_3" rows="8" class="one_based">
+(00) n = 1 // 生徒番号
+(01) Namae = ["可燃ごみ", "不燃ごみ", "ペットボトル", "かん", "びん", "金属", "落ち葉"]
+(02) shuruisu = 7
+(03) 表示する("ごみの種類の名称は？")
+(04) meishou =【文字列を入力】
+(05) j を 1 から shuruisu まで 1 ずつ増やしながら繰り返す:
+(06) もし Namae[j] == meishou ならば:
+(07) ⎿⎿ Shurui[n] = j
+</textarea>
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
+
+<section>
+<h2>R7共通テスト追・再試験 - ごみの総重量を計算するプログラム改</h2>
+<p>令和７年度共通テスト追・再試験「情報Ⅰ」より引用。 <strong>※注：配列は 1 から始まる</strong>ので、実行する際は「配列の添字を 1 からにする」をオンにしてください。</p>
+<textarea id="kyoutuu2025tui_4" rows="16" class="one_based">
+(00-1) Iremono = [2,2,1,1,1,1,1,2,2,1,2,2,1,2,1,1,2,1,1,1,2,1,2,1,1,1,2,2,2,2,2,2,2,1,1,1,1,1,1,2]
+(00-2) Shurui  = [2,4,1,3,3,4,4,7,2,7,7,3,2,5,6,2,5,2,2,7,6,5,3,3,6,7,7,3,7,1,3,6,4,2,6,6,6,4,2,2]
+(00-3) Keiryou = [112,1139,717,1206,764,855,1693,1151,1283,1258,1080,500,1722,46,1433,755,1039,1528,633,948,382,765,610,527,1536,1012,726,478,1147,1113,909,185,1282,1411,1293,1219,913,1401,1164,401]
+(01) ninzu = 40
+(02) Namae = ["可燃ごみ", "不燃ごみ", "ペットボトル", "かん", "びん", "金属", "落ち葉"]
+(03) shuruisu = 7
+(04) Goukei = [0, 0, 0, 0, 0, 0, 0]
+(05) i を 1 から 40 まで 1 ずつ増やしながら繰り返す:
+(06)  ｜ もし Iremono[i] == 1 ならば:
+(07)  ｜  ｜ gomi = Keiryou[i] - 350
+(08)  ｜ そうでなければ:
+(09)  ｜  ⎿ gomi = Keiryou[i]
+(10)  ｜ s = Shurui[i]
+(11)  ⎿ Goukei[s] = Goukei[s] + gomi
+(12) j を 1 から 7 まで 1 ずつ増やしながら繰り返す:
+(13)  ⎿ 表示する( Namae[j] , "の総重量は", Goukei[j] , "g")
+</textarea>
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
+
+<section>
 <h2>R7共通テスト本試験 - 次に割り当てる工芸品の担当部員を表示するプログラム</h2>
 <p>令和７年度共通テスト本試験「情報Ⅰ」より引用。 <strong>※注：配列は 1 から始まる</strong>ので、実行する際は「配列の添字を 1 からにする」をオンにしてください。</p>
-<textarea id="kyoutuu2025hon_1" rows="7">
-(01) Akibi = [5, 3, 3]
-(02) buinsu = 3
+<textarea id="kyoutuu2025hon_1" rows="7" class="one_based">
+(01) Akibi = [5, 6, 4, 4, 4]
+(02) buinsu = 5
 (03) tantou = 1
 (04) buin を 2 から buinsu まで 1 ずつ増やしながら繰り返す:
 (05)  ｜ もし Akibi[buin] &lt; Akibi[tantou] ならば:
 (06)  ⎿  ⎿ tantou = buin
 (07) 表示する("次の工芸品の担当は部員", tantou, "です。")
 </textarea>
-<input type="button" value="コピー" id="kyoutuu2025hon_1" class="copy_button" />
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
 
+<section>
 <h2>R7共通テスト本試験 - 各工芸品の担当と期間の一覧を表示するプログラム</h2>
 <p>令和７年度共通テスト本試験「情報Ⅰ」より引用。 <strong>※注：配列は 1 から始まる</strong>ので、実行する際は「配列の添字を 1 からにする」をオンにしてください。</p>
 <textarea id="kyoutuu2025hon_2" rows="14">
@@ -80,8 +198,14 @@ strong {
       ｜          Akibi[tantou] + Nissu[kougeihin] - 1, "日目")
 (11)  ⎿ Akibi[tantou] = Akibi[tantou] + Nissu[kougeihin]
 </textarea>
-<input type="button" value="コピー" id="kyoutuu2025hon_2" class="copy_button" />
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
 
+<section>
 <h2>試作問題 - 出現頻度を求めるプログラム</h2>
 <p><a href="https://www.ipsj.or.jp/education/9faeag0000012a50-att/sanko2.pdf">「情報」試作問題 (検討用イメージ)</a>より引用。</p>
 <textarea id="shisaku2020_1" rows="8">
@@ -93,8 +217,14 @@ strong {
 (06)  ⎿  ⎿ Hindo[bangou] = Hindo[bangou] + 1
 (07) 表示する(Hindo)
 </textarea>
-<input type="button" value="コピー" id="shisaku2020_1_copy" class="copy_button" />
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
 
+<section>
 <h2>試作問題 - 暗号文を復号するプログラム</h2>
 <p><a href="https://www.ipsj.or.jp/education/9faeag0000012a50-att/sanko2.pdf">「情報」試作問題 (検討用イメージ)</a>より引用。</p>
 <textarea id="shisaku2020_2" rows="14">
@@ -112,8 +242,14 @@ strong {
 (12)  ⎿  ⎿ Hirabun[i] = Angoubun[i]
 (13) 表示する(Hirabun)
 </textarea>
-<input type="button" value="コピー" id="shisaku2020_2_copy" class="copy_button" />
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
 
+<section>
 <h2>試作問題 - 暗号文を復号するプログラム改</h2>
 <p><a href="https://www.ipsj.or.jp/education/9faeag0000012a50-att/sanko2.pdf">「情報」試作問題 (検討用イメージ)</a>より引用。</p>
 <textarea id="shisaku2020_2kai" rows="11">
@@ -128,8 +264,14 @@ strong {
 (09)  ⎿  ⎿ Hirabun[i] = Angoubun[i]
 (10) 表示する(Hirabun)
 </textarea>
-<input type="button" value="コピー" id="shisaku2020_2kai_copy" class="copy_button" />
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
 
+<section>
 <h2>オリジナル - FizzBuzz</h2>
 <textarea id="original_fizzbuzz" rows="9">
 (01) i を 1 から 100 まで 1 ずつ増やしながら:
@@ -142,8 +284,14 @@ strong {
 (08)  ｜ そうでなければ:
 (09)  ⎿  ⎿ 表示する(i)
 </textarea>
-<input type="button" value="コピー" id="original_fizzbuzz_copy" class="copy_button" />
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
 
+<section>
 <h2>サンプル問題 - 当選数を決めるプログラム1</h2>
 <p><a href="https://www.mext.go.jp/content/20211014-mxt_daigakuc02-000018441_9.pdf">情報 サンプル問題</a>より引用。</p>
 <textarea id="sample2021_1" rows="11">
@@ -159,8 +307,14 @@ strong {
 (10) m を 0 から 3 まで 1 ずつ増やしながら繰り返す:
 (11)  ⎿ 表示する(Tomei[m], "：", Tokuhyo[m] / kizyunsuu)
 </textarea>
-<input type="button" value="コピー" id="sample2021_1_copy" class="copy_button" />
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
 
+<section>
 <h2>サンプル問題 - 当選数を決めるプログラム2</h2>
 <p><a href="https://www.mext.go.jp/content/20211014-mxt_daigakuc02-000018441_9.pdf">情報 サンプル問題</a>より引用。</p>
 <textarea id="sample2021_2" rows="18">
@@ -183,8 +337,14 @@ strong {
 (17) k を 0 から 3 まで 1 ずつ増やしながら繰り返す:
 (18)  ⎿ 表示する(Tomei[k], "：", Tosen[k], "名")
 </textarea>
-<input type="button" value="コピー" id="sample2021_2_copy" class="copy_button" />
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
 
+<section>
 <h2>サンプル問題 - 当選数を決めるプログラム2改</h2>
 <p><a href="https://www.mext.go.jp/content/20211014-mxt_daigakuc02-000018441_9.pdf">情報 サンプル問題</a>より引用。</p>
 <textarea id="sample2021_2kai" rows="19">
@@ -208,8 +368,14 @@ strong {
 (18) k を 0 から 3 まで 1 ずつ増やしながら繰り返す:
 (19)  ⎿ 表示する(Tomei[k], "：", Tosen[k], "名")
 </textarea>
-<input type="button" value="コピー" id="sample2021_2kai_copy" class="copy_button" />
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
 
+<section>
 <h2>試作問題2022 - 目標の金額ちょうどになる最小の硬貨枚数を計算するプログラム</h2>
 <p><a href="https://www.dnc.ac.jp/albums/abm.php?d=511&amp;f=abm00003277.pdf&amp;n=6-2-1_%E8%A9%A6%E4%BD%9C%E5%95%8F%E9%A1%8C%E3%80%8E%E6%83%85%E5%A0%B1%E2%85%A0%E3%80%8F%E2%80%BB%E4%BB%A4%E5%92%8C4%E5%B9%B412%E6%9C%8823%E6%97%A5%E4%B8%80%E9%83%A8%E4%BF%AE%E6%AD%A3.pdf">試作問題『情報Ⅰ』</a>より引用。</p>
 <textarea id="shisaku2022_1" rows="7">
@@ -221,8 +387,14 @@ strong {
 (6)  ⎿ nokori = nokori % Kouka[i]
 (7) 表示する(maisu)
 </textarea>
-<input type="button" value="コピー" id="shisaku2022_1_copy" class="copy_button" />
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
 
+<section>
 <h2>試作問題2022 - 最小交換硬貨枚数を求めるプログラム</h2>
 <p><a href="https://www.dnc.ac.jp/albums/abm.php?d=511&amp;f=abm00003277.pdf&amp;n=6-2-1_%E8%A9%A6%E4%BD%9C%E5%95%8F%E9%A1%8C%E3%80%8E%E6%83%85%E5%A0%B1%E2%85%A0%E3%80%8F%E2%80%BB%E4%BB%A4%E5%92%8C4%E5%B9%B412%E6%9C%8823%E6%97%A5%E4%B8%80%E9%83%A8%E4%BF%AE%E6%AD%A3.pdf">試作問題『情報Ⅰ』</a>より引用。</p>
 <textarea id="shisaku2022_2" rows="7">
@@ -235,8 +407,14 @@ strong {
 (7)  ⎿  ⎿ min_maisu = maisu
 (8) 表示する(min_maisu)
 </textarea>
-<input type="button" value="コピー" id="shisaku2022_2_copy" class="copy_button" />
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
 
+<section>
 <h2>試作問題2022概要 - 二分探索</h2>
 <p><a href="https://www.dnc.ac.jp/albums/abm.php?d=511&amp;f=abm00003141.pdf&amp;n=6-1_%E6%A6%82%E8%A6%81%E3%80%8C%E6%83%85%E5%A0%B1%E3%80%8D.pdf">概要「情報」</a>より引用。</p>
 <textarea id="shisaku2022_gaiyou" rows="20">
@@ -261,28 +439,44 @@ strong {
 (19) i を 0 から kazu - 1 まで 1 ずつ増やしながら繰り返す:
 (20)  ⎿ 表示する(i, " ", Data[i])
 </textarea>
-<input type="button" value="コピー" id="shisaku2022_gaiyou_copy" class="copy_button" />
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
 
 </form>
 
 <script>
+function base64encode(str) {
+    const uint8arr = new TextEncoder().encode(str);
+    const binStr = Array.from(uint8arr).map(b => String.fromCharCode(b)).join("");
+    return btoa(binStr).replaceAll("+", "_").replaceAll("/", "-").replaceAll("=", ".");
+}
 
 window.addEventListener("DOMContentLoaded", function(){
-    const textareas = Array.from(document.getElementsByTagName("textarea"));
-    textareas.forEach((ta) => { ta.value = ta.value.trimEnd() });
-    let elms = document.getElementsByClassName("copy_button");
-    for(let i = 0; i < elms.length; i++){
-        let elm = elms[i];
-        elm.addEventListener("click", function(event){
-            copyToClipboard(elm.id.replace(/_copy$/, ""));
-        });
-    }
+    const sections = Array.from(document.getElementsByTagName("section"));
+    sections.forEach((sec) => {
+        const textarea   = sec.getElementsByTagName("textarea")[0];
+        textarea.value = textarea.value.trimEnd()
+        const copybutton = sec.getElementsByTagName("input")[0];
+        const run        = sec.getElementsByClassName("run")[0];
+        const step       = sec.getElementsByClassName("step")[0];
+        copybutton.addEventListener("click", (event) => {
+            copyToClipboard(textarea, copybutton);
+        })
+        const pre = textarea.className == "one_based" ? "#1&" : "#";
+        const hash = pre + base64encode(textarea.value);
+        run.href  = "https://nodai2hitc.github.io/ictl/" + hash;
+        step.href = "https://nodai2hitc.github.io/ictl/step.html" + hash;
+    });
 });
 
-function copyToClipboard(id) {
-    navigator.clipboard.writeText(document.getElementById(id).value);
-    document.getElementById(id + "_copy").value = "コピーしました。";
-    setTimeout(function(){ document.getElementById(id + "_copy").value = "コピー"; }, 3000);
+function copyToClipboard(textarea, copybutton) {
+    navigator.clipboard.writeText(textarea.value);
+    copybutton.value = "コピーしました。";
+    setTimeout(function(){ copybutton.value = "コピー"; }, 3000);
 }
 
 </script>
