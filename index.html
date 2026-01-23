@@ -64,6 +64,102 @@ strong {
 
 <form>
 
+<!--
+<section>
+<h2> - </h2>
+<p>より引用。 <strong>※注：配列は 1 から始まる</strong>ので、実行する際は「配列の添字を 1 からにする」をオンにしてください。</p>
+<textarea id="kyoutuu2026hon_1" rows="8" class="one_based">
+</textarea>
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
+-->
+
+<section>
+<h2>R8共通テスト本試験 - 2 人目以降の来訪者の待ち時間を求めるプログラム</h2>
+<p>令和８年度共通テスト本試験「情報Ⅰ」より引用。 <strong>※注：配列は 1 から始まる</strong>ので、実行する際は「配列の添字を 1 からにする」をオンにしてください。</p>
+<textarea id="kyoutuu2026hon_1" rows="11" class="one_based">
+(01) taiken = 3
+(02) Touchaku = [0, 3, 4, 10, 11, 12]
+(03) kyakusu = 要素数(Touchaku)
+(04) Kaishi = [0, 0, 0, 0, 0, 0]
+(05) Shuryou = [0, 0, 0, 0, 0, 0]
+(06) Shuryou[1] = taiken
+(07) i を 2 から kyakusu まで 1 ずつ増やしながら繰り返す：
+(08)  ｜ Kaishi[i] = 最大値(Touchaku[i], Shuryou[i-1])
+(09)  ｜ Shuryou[i] = Kaishi[i] + taiken
+(10)  ｜ 表示する(i, "人目の待ち時間：",
+      ⎿          Kaishi[i] - Touchaku[i], "分間")
+</textarea>
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
+
+<section>
+<h2>R8共通テスト本試験 - 最長待ち時間が 10 分間未満となる体験時間を調べるプログラム</h2>
+<p>令和８年度共通テスト本試験「情報Ⅰ」より引用。 <strong>※注：配列は 1 から始まる</strong>ので、実行する際は「配列の添字を 1 からにする」をオンにしてください。</p>
+<textarea id="kyoutuu2026hon_2" rows="16" class="one_based">
+(01) Touchaku = [0, 3, 4, 10, 11, 12]
+(02) kyakusu = 要素数(Touchaku)
+(03) taiken を 1 から 15 まで 1 ずつ増やしながら繰り返す：
+(04)  ｜ Kaishi = [0, 0, 0, 0, 0, 0]
+(05)  ｜ Shuryou = [0, 0, 0, 0, 0, 0]
+(06)  ｜ Shuryou[1] = taiken
+(07)  ｜ i を 2 から kyakusu まで 1 ずつ増やしながら繰り返す：
+(08)  ｜  ｜ Kaishi[i] = 最大値(Touchaku[i], Shuryou[i-1])
+(09)  ｜  ⎿ Shuryou[i] = Kaishi[i] + taiken
+(10)  ｜ saichou = 0
+(11)  ｜ i を 1 から kyakusu まで 1 ずつ増やしながら繰り返す：
+(12)  ｜  ⎿ saichou = 最大値(saichou, Kaishi[i] - Touchaku[i])
+(13)  ｜ もし saichou &lt; 10 ならば：
+(14)  ｜  ｜ 表示する("体験時間", taiken, "分間：",
+      ｜  ⎿          "最長待ち時間", saichou, "分間")
+      ⎿ 
+</textarea>
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
+
+<section>
+<h2>R8共通テスト本試験 - 最長待ち時間が 10 分間未満となる体験時間を調べるプログラム改</h2>
+<p>令和８年度共通テスト本試験「情報Ⅰ」より引用。 <strong>※注：配列は 1 から始まる</strong>ので、実行する際は「配列の添字を 1 からにする」をオンにしてください。</p>
+<textarea id="kyoutuu2026hon_3" rows="19" class="one_based">
+(01) Touchaku = [0, 3, 4, 10, 11, 12]
+(02) kyakusu = 要素数(Touchaku)
+(02-1) taiken = 1
+(02-2) saichou = 0
+(03) (taiken &lt;= 15) and (saichou &lt; 10) の間繰り返す：
+(04)  ｜ Kaishi = [0, 0, 0, 0, 0, 0]
+(05)  ｜ Shuryou = [0, 0, 0, 0, 0, 0]
+(06)  ｜ Shuryou[1] = taiken
+(07)  ｜ i を 2 から kyakusu まで 1 ずつ増やしながら繰り返す：
+(08)  ｜  ｜ Kaishi[i] = 最大値(Touchaku[i], Shuryou[i-1])
+(09)  ｜  ⎿ Shuryou[i] = Kaishi[i] + taiken
+(10)  ｜ saichou = 0
+(11)  ｜ i を 1 から kyakusu まで 1 ずつ増やしながら繰り返す：
+(12)  ｜  ⎿ saichou = 最大値(saichou, Kaishi[i] - Touchaku[i])
+(13)  ｜ もし saichou &lt; 10 ならば：
+(14)  ｜  ｜ 表示する("体験時間", taiken, "分間：",
+      ｜  ⎿          "最長待ち時間", saichou, "分間")
+      ｜ taiken = taiken + 1
+      ⎿ 
+</textarea>
+<ul>
+    <li><input type="button" value="コピー" class="copy_button" /></li>
+    <li><a class="run">実行ページ</a></li>
+    <li><a class="step">ステップ実行ページ</a></li>
+</ul>
+</section>
+
 <section>
 <h2>R7共通テスト追・再試験 - ごみ拾いの結果を入力するプログラム</h2>
 <p>令和７年度共通テスト追・再試験「情報Ⅰ」より引用。 <strong>※注：配列は 1 から始まる</strong>ので、実行する際は「配列の添字を 1 からにする」をオンにしてください。</p>
@@ -377,7 +473,7 @@ strong {
 
 <section>
 <h2>試作問題2022 - 目標の金額ちょうどになる最小の硬貨枚数を計算するプログラム</h2>
-<p><a href="https://www.dnc.ac.jp/albums/abm.php?d=511&amp;f=abm00003277.pdf&amp;n=6-2-1_%E8%A9%A6%E4%BD%9C%E5%95%8F%E9%A1%8C%E3%80%8E%E6%83%85%E5%A0%B1%E2%85%A0%E3%80%8F%E2%80%BB%E4%BB%A4%E5%92%8C4%E5%B9%B412%E6%9C%8823%E6%97%A5%E4%B8%80%E9%83%A8%E4%BF%AE%E6%AD%A3.pdf">試作問題『情報Ⅰ』</a>より引用。</p>
+<p><a href="https://www.dnc.ac.jp/albums/abm.php?d=744&amp;f=abm00003277.pdf&amp;n=6-2-1_%E8%A9%A6%E4%BD%9C%E5%95%8F%E9%A1%8C%E3%80%8E%E6%83%85%E5%A0%B1%E2%85%A0%E3%80%8F%E2%80%BB%E4%BB%A4%E5%92%8C4%E5%B9%B412%E6%9C%8823%E6%97%A5%E4%B8%80%E9%83%A8%E4%BF%AE%E6%AD%A3.pdf">試作問題『情報Ⅰ』</a>より引用。</p>
 <textarea id="shisaku2022_1" rows="7">
 (1) Kouka = [1,5,10,50,100]
 (2) kingaku = 46
@@ -396,7 +492,7 @@ strong {
 
 <section>
 <h2>試作問題2022 - 最小交換硬貨枚数を求めるプログラム</h2>
-<p><a href="https://www.dnc.ac.jp/albums/abm.php?d=511&amp;f=abm00003277.pdf&amp;n=6-2-1_%E8%A9%A6%E4%BD%9C%E5%95%8F%E9%A1%8C%E3%80%8E%E6%83%85%E5%A0%B1%E2%85%A0%E3%80%8F%E2%80%BB%E4%BB%A4%E5%92%8C4%E5%B9%B412%E6%9C%8823%E6%97%A5%E4%B8%80%E9%83%A8%E4%BF%AE%E6%AD%A3.pdf">試作問題『情報Ⅰ』</a>より引用。</p>
+<p><a href="https://www.dnc.ac.jp/albums/abm.php?d=744&amp;f=abm00003277.pdf&amp;n=6-2-1_%E8%A9%A6%E4%BD%9C%E5%95%8F%E9%A1%8C%E3%80%8E%E6%83%85%E5%A0%B1%E2%85%A0%E3%80%8F%E2%80%BB%E4%BB%A4%E5%92%8C4%E5%B9%B412%E6%9C%8823%E6%97%A5%E4%B8%80%E9%83%A8%E4%BF%AE%E6%AD%A3.pdf">試作問題『情報Ⅰ』</a>より引用。</p>
 <textarea id="shisaku2022_2" rows="7">
 (1) kakaku = 46
 (2) min_maisu = 100
@@ -416,7 +512,7 @@ strong {
 
 <section>
 <h2>試作問題2022概要 - 二分探索</h2>
-<p><a href="https://www.dnc.ac.jp/albums/abm.php?d=511&amp;f=abm00003141.pdf&amp;n=6-1_%E6%A6%82%E8%A6%81%E3%80%8C%E6%83%85%E5%A0%B1%E3%80%8D.pdf">概要「情報」</a>より引用。</p>
+<p><a href="https://www.dnc.ac.jp/albums/abm.php?d=744&amp;f=abm00003141.pdf&amp;n=6-1_%E6%A6%82%E8%A6%81%E3%80%8C%E6%83%85%E5%A0%B1%E3%80%8D.pdf">概要「情報」</a>より引用。</p>
 <textarea id="shisaku2022_gaiyou" rows="20">
 (1)  Data = [3,18,29,33,48,52,62,77,89,97]
 (2)  kazu = 要素数(Data)
